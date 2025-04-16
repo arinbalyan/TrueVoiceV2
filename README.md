@@ -127,7 +127,7 @@ TrueVoice is a blockchain-based feedback system that ensures all feedback and re
 ## Technical Architecture
 
 ### Client-Side
-- HTML5, CSS3, and vanilla JavaScript
+- HTML5, CSS, and JavaScript
 - Responsive design using flexbox and CSS grid
 - Event-driven UI updates
 
@@ -139,7 +139,7 @@ TrueVoice is a blockchain-based feedback system that ensures all feedback and re
 ### Blockchain Implementation
 - Custom blockchain using SHA256 hashing
 - Proof-of-work consensus algorithm
-- In-memory storage (can be extended to persistent storage)
+- In-memory storage (can be extended to persistent storage using a database)
 
 ## Installation
 
