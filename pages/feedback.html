@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback - TrueVoice</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueVoice</h1>
+            <p class="subtitle">Submit Your Feedback on Blockchain</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="feedback.html" class="active">Give Feedback</a></li>
+                    <li><a href="request.html">Request Feedback</a></li>
+                    <li><a href="view.html">View Feedbacks</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="single-column">
+            <div class="tabs feedback-tabs">
+                <button class="tab-btn active" data-tab="requests">Respond to Active Requests</button>
+                <button class="tab-btn" data-tab="general">Give Your Feedback</button>
+            </div>
+            
+            <div class="tab-content active" id="requests-tab">
+                <section class="feedback-requests">
+                    <h2>Respond to Feedback Requests</h2>
+                    <p>Browse and respond to feedback requests from other users. All responses are recorded on our decentralized blockchain.</p>
+                    
+                    <div class="form-group filter-control">
+                        <label for="requestFilter">Browse Active Requests</label>
+                        <div class="input-with-button">
+                            <select id="requestFilterCategory">
+                                <option value="">All Categories</option>
+                                <option value="product">Product</option>
+                                <option value="service">Service</option>
+                                <option value="website">Website</option>
+                                <option value="app">Application</option>
+                                <option value="idea">Idea/Concept</option>
+                                <option value="design">Design</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <button id="loadAllRequests" class="btn-primary">Load Requests</button>
+                        </div>
+                    </div>
+                    
+                    <div id="requestsContainer" class="requests-list">
+                        <p class="placeholder-text">Click "Load Requests" to view available feedback requests</p>
+                    </div>
+                    
+                    <div id="responseFormContainer" class="response-form" style="display: none;">
+                        <h3>Respond to Request: <span id="responseRequestTitle"></span></h3>
+                        
+                        <form id="responseForm">
+                            <input type="hidden" id="responseRequestId">
+                            
+                            <div class="form-group">
+                                <label for="responseNickname">Your Nickname</label>
+                                <input type="text" id="responseNickname" placeholder="Enter your nickname (optional)">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="responseMessage">Your Feedback</label>
+                                <textarea id="responseMessage" placeholder="Enter your feedback" required></textarea>
+                            </div>
+                            
+                            <div id="responseRatingContainer" class="form-group">
+                                <!-- Dynamic content based on request settings -->
+                            </div>
+                            
+                            <div id="responseQuestionsContainer">
+                                <!-- Dynamic content based on request custom questions -->
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button type="button" id="cancelResponse" class="btn-secondary">Cancel</button>
+                                <button type="submit" class="btn-primary">Submit Response</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="tab-content" id="general-tab">
+                <section class="feedback-form">
+                    <h2>Provide Your Feedback</h2>
+                    <p>Your feedback will be permanently recorded on our decentralized blockchain and cannot be modified once submitted, ensuring transparency and trust.</p>
+                    
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="nickname">Nickname</label>
+                            <input type="text" id="nickname" placeholder="Enter your nickname (optional)" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Feedback Message</label>
+                            <textarea id="message" placeholder="Enter your feedback message" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="">Select Category</option>
+                                <option value="product">Product</option>
+                                <option value="service">Service</option>
+                                <option value="website">Website</option>
+                                <option value="app">Application</option>
+                                <option value="support">Customer Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <div class="rating-options">
+                                <div class="rating-type-toggle">
+                                    <label>
+                                        <input type="radio" name="rating-type" value="numeric" checked> Numeric
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="rating-type" value="text"> Text
+                                    </label>
+                                </div>
+                                
+                                <div id="numeric-rating" class="rating-input">
+                                    <select id="numeric-rating-select">
+                                        <option value="">Select Rating</option>
+                                        <option value="1">1 - Poor</option>
+                                        <option value="2">2 - Fair</option>
+                                        <option value="3">3 - Good</option>
+                                        <option value="4">4 - Very Good</option>
+                                        <option value="5">5 - Excellent</option>
+                                    </select>
+                                </div>
+                                
+                                <div id="text-rating" class="rating-input" style="display: none;">
+                                    <select id="text-rating-select">
+                                        <option value="">Select Rating</option>
+                                        <option value="Poor">Poor</option>
+                                        <option value="Fair">Fair</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Very Good">Very Good</option>
+                                        <option value="Excellent">Excellent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tags">Tags (comma separated)</label>
+                            <input type="text" id="tags" placeholder="e.g., feature, bug, suggestion">
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Feedback</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

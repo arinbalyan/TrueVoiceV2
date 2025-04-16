@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - TrueVoice</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueVoice</h1>
+            <p class="subtitle">Decentralized Feedback System</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="feedback.html">Submit Feedback</a></li>
+                    <li><a href="view.html">View Feedbacks</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="single-column">
+            <section class="error-container">
+                <div class="error-icon">⚠️</div>
+                <h2 id="errorTitle">An Error Occurred</h2>
+                <p id="errorMessage">Something went wrong with your request.</p>
+                <div class="error-actions">
+                    <button id="goBack" class="btn-secondary">Go Back</button>
+                    <a href="../index.html" class="btn-primary">Return Home</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get error details from URL if available
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorType = urlParams.get('type');
+            const errorMsg = urlParams.get('message');
+            
+            const errorTitle = document.getElementById('errorTitle');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Set error details
+            if (errorType) {
+                errorTitle.textContent = `Error: ${errorType}`;
+            }
+            
+            if (errorMsg) {
+                errorMessage.textContent = errorMsg;
+            }
+            
+            // Go back button
+            document.getElementById('goBack').addEventListener('click', () => {
+                window.history.back();
+            });
+        });
+    </script>
+</body>
+</html> 

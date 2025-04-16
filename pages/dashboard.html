@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TrueVoice</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueVoice</h1>
+            <p class="subtitle">Your Decentralized Feedback Dashboard</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="feedback.html">Give Feedback</a></li>
+                    <li><a href="request.html">Request Feedback</a></li>
+                    <li><a href="view.html">View Feedbacks</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="single-column">
+            <section class="user-profile">
+                <h2>Your Profile</h2>
+                <div class="profile-container">
+                    <div class="profile-info">
+                        <div class="form-group">
+                            <label for="currentUserId">Your Nickname</label>
+                            <input type="text" id="currentUserId" placeholder="Enter your nickname to view your data">
+                            <button id="loadUserData" class="btn-primary">Load My Data</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-stats">
+                <h2>Your Feedback Activity</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Feedbacks Given</h3>
+                        <div class="stat-value" id="feedbacksGiven">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Feedback Requests Created</h3>
+                        <div class="stat-value" id="requestsCreated">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Responses Received</h3>
+                        <div class="stat-value" id="responsesReceived">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Average Rating Received</h3>
+                        <div class="stat-value" id="avgRatingReceived">-</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="feedback-history">
+                <h2>Your Recent Feedback Activity</h2>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="given">Feedbacks Given</button>
+                    <button class="tab-btn" data-tab="requests">Feedback Requests</button>
+                    <button class="tab-btn" data-tab="responses">Responses Received</button>
+                </div>
+                
+                <div class="tab-content active" id="given-tab">
+                    <div id="feedbacksGivenContainer" class="feedback-list">
+                        <p class="placeholder-text">Enter your nickname to view feedbacks you've given</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="requests-tab">
+                    <div id="requestsCreatedContainer" class="feedback-list">
+                        <p class="placeholder-text">Enter your nickname to view feedback requests you've created</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="responses-tab">
+                    <div id="responsesReceivedContainer" class="feedback-list">
+                        <p class="placeholder-text">Enter your nickname to view responses to your requests</p>
+                    </div>
+                </div>
+            </section>
+            
+            
+        </main>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

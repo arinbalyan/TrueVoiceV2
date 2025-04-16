@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Feedback - TrueVoice</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueVoice</h1>
+            <p class="subtitle">Request Feedback on Blockchain</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="feedback.html">Give Feedback</a></li>
+                    <li><a href="request.html" class="active">Request Feedback</a></li>
+                    <li><a href="view.html">View Feedbacks</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="single-column">
+            <section class="feedback-form">
+                <h2>Create a Feedback Request</h2>
+                <p>Create a feedback request for your product, service, or idea. Others can provide feedback on your request through our transparent blockchain.</p>
+                
+                <form id="requestForm">
+                    <div class="form-group">
+                        <label for="requestUserId">Your Nickname</label>
+                        <input type="text" id="requestUserId" placeholder="Enter your nickname" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestTitle">Request Title</label>
+                        <input type="text" id="requestTitle" placeholder="Enter a title for your feedback request" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestDescription">Description</label>
+                        <textarea id="requestDescription" placeholder="Describe what you're seeking feedback on" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestCategory">Category</label>
+                        <select id="requestCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="product">Product</option>
+                            <option value="service">Service</option>
+                            <option value="website">Website</option>
+                            <option value="app">Application</option>
+                            <option value="idea">Idea/Concept</option>
+                            <option value="design">Design</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestExpiryDate">Request Valid Until (Optional)</label>
+                        <input type="date" id="requestExpiryDate">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestTags">Tags (comma separated)</label>
+                        <input type="text" id="requestTags" placeholder="e.g., design, usability, pricing">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Rating Type To Collect</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="collectNumericRating" checked> 
+                                Numeric Rating (1-5)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="collectTextRating"> 
+                                Text Rating (Poor to Excellent)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customQuestions">Custom Questions (One per line, Optional)</label>
+                        <textarea id="customQuestions" placeholder="Enter custom questions for responders"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Create Feedback Request</button>
+                </form>
+            </section>
+            
+            <section class="active-requests">
+                <h2>Active Feedback Requests</h2>
+                <div class="requests-container">
+                    <button id="loadAllRequests" class="btn-primary btn-block">Load All Active Requests</button>
+                    <div id="activeRequestsContainer" class="requests-list">
+                        <p class="placeholder-text">Click "Load All Active Requests" to see what feedback requests are currently active</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="your-requests">
+                <h2>Your Feedback Requests</h2>
+                <div class="form-group filter-control">
+                    <label for="yourRequestsUserId">Enter Your Nickname</label>
+                    <div class="input-with-button">
+                        <input type="text" id="yourRequestsUserId" placeholder="Enter your nickname to see your requests">
+                        <button id="loadRequests" class="btn-secondary">Load</button>
+                    </div>
+                </div>
+                <div id="yourRequestsContainer" class="requests-list">
+                    <p class="placeholder-text">Enter your nickname to view your active feedback requests</p>
+                </div>
+            </section>
+        </main>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

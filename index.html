@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueVoice - Decentralized Feedback System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for improved UI placement */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        
+        nav {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .blockchain-visualization {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #f9f9f9, #ffffff);
+        }
+        
+        .features, .platform-features, .new-features {
+            margin: 4rem 0;
+        }
+        
+        .features h2, .platform-features h2, .new-features h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-card h3 {
+            margin-top: 0;
+            color: #2a4b8d;
+        }
+        
+        .feature-link {
+            margin-top: auto;
+            display: inline-block;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color: #2a4b8d;
+            text-decoration: none;
+        }
+        
+        .feature-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: #f5f7fa;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-info {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e1e4e8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+            
+            .hero-content, .hero-image {
+                width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueVoice</h1>
+            <p class="subtitle">Decentralized Feedback System</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/dashboard.html">Dashboard</a></li>
+                    <li><a href="pages/feedback.html">Give Feedback</a></li>
+                    <li><a href="pages/request.html">Request Feedback</a></li>
+                    <li><a href="pages/view.html">View Feedbacks</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Your Voice, Immutably Recorded</h2>
+                    <p>TrueVoice is a blockchain-based feedback system that ensures your feedback is permanently recorded and cannot be altered. Share thoughts, request feedback, and build a transparent feedback ecosystem.</p>
+                    <div class="hero-buttons">
+                        <a href="pages/dashboard.html" class="btn-primary">Your Dashboard</a>
+                        <a href="pages/request.html" class="btn-secondary">Request Feedback</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="blockchain-visualization">
+                        <div class="block">
+                            <div class="block-hash">0x8f2...</div>
+                            <div class="block-data">Genesis Block</div>
+                        </div>
+                        <div class="chain-link">➔</div>
+                        <div class="block">
+                            <div class="block-hash">0x7d3...</div>
+                            <div class="block-data">Feedback #1</div>
+                        </div>
+                        <div class="chain-link">➔</div>
+                        <div class="block">
+                            <div class="block-hash">0x9a1...</div>
+                            <div class="block-data">Feedback #2</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Why Choose TrueVoice?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Immutable Records</h3>
+                        <p>Once recorded, feedback cannot be altered or deleted, ensuring integrity and transparency.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Blockchain Security</h3>
+                        <p>SHA256 hashing and proof-of-work ensure your feedback is secure and tamper-proof.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Transparent Ledger</h3>
+                        <p>All feedback is publicly viewable and verifiable by anyone at any time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Enhanced Feedback</h3>
+                        <p>Provide ratings, categories, priorities, and tags to make your feedback more structured and actionable.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="platform-features">
+                <h2>Complete Feedback Ecosystem</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Personal Dashboard</h3>
+                        <p>Track all your feedback activities, requests, and responses in one convenient location.</p>
+                        <a href="pages/dashboard.html" class="feature-link">Go to Dashboard</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Give Feedback</h3>
+                        <p>Share your thoughts on products, services, or respond to specific feedback requests.</p>
+                        <a href="pages/feedback.html" class="feature-link">Give Feedback</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Request Feedback</h3>
+                        <p>Create detailed feedback requests for your products or ideas and collect structured responses.</p>
+                        <a href="pages/request.html" class="feature-link">Request Feedback</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Explore & Analyze</h3>
+                        <p>Browse through feedbacks and requests, with powerful filtering and sorting capabilities.</p>
+                        <a href="pages/view.html" class="feature-link">View Feedbacks</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="new-features">
+                <h2>Powerful Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Flexible Ratings</h3>
+                        <p>Choose between numeric (1-5) or text-based ratings to express your satisfaction level.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Custom Questions</h3>
+                        <p>Create feedback requests with tailored questions to collect the exact information you need.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Priority Levels</h3>
+                        <p>Set priority levels to indicate the urgency or importance of feedback items.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Detailed Analytics</h3>
+                        <p>Track response statistics and analyze feedback patterns through your personal dashboard.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>TrueVoice</h3>
+                    <p>A Decentralized Feedback System</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="pages/dashboard.html">Dashboard</a></li>
+                        <li><a href="pages/feedback.html">Give Feedback</a></li>
+                        <li><a href="pages/request.html">Request Feedback</a></li>
+                        <li><a href="pages/view.html">View Feedbacks</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TrueVoice - A Blockchain Techn</p>
+            </div>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification"></div>
+    <script src="js/main.js"></script>
+</body>
+</html> 

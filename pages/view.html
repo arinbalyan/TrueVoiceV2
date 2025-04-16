@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Feedbacks - TrueVoice</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueVoice</h1>
+            <p class="subtitle">Decentralized Blockchain Feedback Ledger</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="feedback.html">Give Feedback</a></li>
+                    <li><a href="request.html">Request Feedback</a></li>
+                    <li><a href="view.html" class="active">View Feedbacks</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="single-column">
+            <section class="blockchain-info">
+                <h2>Blockchain Verification</h2>
+                <p class="blockchain-desc">All feedback data is secured on our immutable, transparent blockchain ledger. Each feedback is permanently recorded and cannot be altered.</p>
+                <div class="blockchain-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Blocks:</span>
+                        <span id="blockCount" class="stat-value">Loading...</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Feedbacks:</span>
+                        <span id="feedbackCount" class="stat-value">Loading...</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Chain Valid:</span>
+                        <span id="chainValid" class="stat-value">Checking...</span>
+                    </div>
+                </div>
+                <div class="blockchain-controls">
+                    <button id="refreshData" class="btn-secondary">Refresh Data</button>
+                    <button id="validateChain" class="btn-secondary">Validate Chain</button>
+                </div>
+            </section>
+
+            <div class="tabs view-tabs">
+                <button class="tab-btn active" data-tab="feedbacks">General Feedbacks</button>
+                <button class="tab-btn" data-tab="requests">Feedback Requests</button>
+                <button class="tab-btn" data-tab="responses">Request Responses</button>
+            </div>
+            
+            <div class="tab-content active" id="feedbacks-tab">
+                <section class="feedbacks-list">
+                    <h2>Feedback Ledger</h2>
+                    <div class="filter-controls">
+                        <div class="filter-item">
+                            <label for="userFilter">Filter by Nickname:</label>
+                            <input type="text" id="userFilter" placeholder="Enter Nickname">
+                        </div>
+                        <div class="filter-item">
+                            <label for="categoryFilter">Filter by Category:</label>
+                            <select id="categoryFilter">
+                                <option value="">All Categories</option>
+                                <option value="product">Product</option>
+                                <option value="service">Service</option>
+                                <option value="website">Website</option>
+                                <option value="app">Application</option>
+                                <option value="support">Customer Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="sortOption">Sort by:</label>
+                            <select id="sortOption">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                                <option value="rating">Highest Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="feedbacksContainer" class="feedback-ledger">
+                        <div class="loading">Loading feedback data...</div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="tab-content" id="requests-tab">
+                <section class="requests-list-section">
+                    <h2>Feedback Requests</h2>
+                    <div class="filter-controls">
+                        <div class="filter-item">
+                            <label for="requestUserFilter">Filter by Nickname:</label>
+                            <input type="text" id="requestUserFilter" placeholder="Enter Nickname">
+                        </div>
+                        <div class="filter-item">
+                            <label for="requestCategoryFilter">Filter by Category:</label>
+                            <select id="requestCategoryFilter">
+                                <option value="">All Categories</option>
+                                <option value="product">Product</option>
+                                <option value="service">Service</option>
+                                <option value="website">Website</option>
+                                <option value="app">Application</option>
+                                <option value="idea">Idea/Concept</option>
+                                <option value="design">Design</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="requestStatusFilter">Filter by Status:</label>
+                            <select id="requestStatusFilter">
+                                <option value="">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="closed">Closed</option>
+                                <option value="expired">Expired</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="requestSortOption">Sort by:</label>
+                            <select id="requestSortOption">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                                <option value="popular">Most Responses</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="allRequestsContainer" class="feedback-ledger">
+                        <div class="loading">Loading feedback requests...</div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="tab-content" id="responses-tab">
+                <section class="responses-list-section">
+                    <h2>Request Responses</h2>
+                    <div class="filter-controls">
+                        <div class="filter-item">
+                            <label for="responseRequestFilter">Filter by Request ID:</label>
+                            <input type="text" id="responseRequestFilter" placeholder="Enter Request ID">
+                        </div>
+                        <div class="filter-item">
+                            <label for="responseUserFilter">Filter by Nickname:</label>
+                            <input type="text" id="responseUserFilter" placeholder="Enter Nickname">
+                        </div>
+                        <div class="filter-item">
+                            <label for="responseSortOption">Sort by:</label>
+                            <select id="responseSortOption">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                                <option value="rating">Highest Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="responsesContainer" class="feedback-ledger">
+                        <div class="loading">Loading responses...</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <div id="notification" class="notification"></div>
+        
+        <!-- Feedback Request Detail Modal -->
+        <div id="requestDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="requestDetailContent">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 
